@@ -1,0 +1,78 @@
+doctype html
+head
+  title Copisteria Julian
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+  script(src='./javascripts/index.js')
+  style.
+    .tinta {
+    width: 50px;
+    height: 50px;
+    float: left;
+    padding: 5px;
+    }
+.container
+  //
+    <div class="jumbotron">
+    <h1>Copisteria Julian</h1>
+    <p>Usa la impresora que mejor te vaya!</p>
+    </div>
+ 
+  .row
+    h3= 'Hojas: '+hojas
+    p Introduce la impresora y el texto a imprimir
+    form.form-inline(action='/enviar' method='get' role='form')
+      | Impresora: 
+      select#seleccion.form-control(name='n_impresora')
+        each color in colores
+          option(value=color.impresora)= color.impresora
+      textarea#texto.form-control(rows='4' name='texto')
+      input(type='submit' value='Enviar a impresora')
+  .row
+    .col-sm-4
+      .row
+        a(href='/a2')
+          img(src='./images/A2.jpg' alt='Procesa cola')
+      .row
+        .toner
+          .tinta(style='background-color:black')= colores[0].negro+'%'
+          .tinta(style='background-color:yellow')= colores[0].amarillo+'%'
+          .tinta(style='background-color:cyan')= colores[0].azul+'%'
+          .tinta(style='background-color:magenta')= colores[0].rosa+'%'
+      .row
+        ul#listaA2.list-group
+          each texto in textos[0]
+            li= texto           
+    .col-sm-4
+      .row
+        a(href='/a3')
+          img(src='./images/A3.jpg' alt='Procesa cola')
+      .row
+        .toner
+          .tinta(style='background-color:black')= colores[1].negro+'%'
+          .tinta(style='background-color:yellow')= colores[1].amarillo+'%'
+          .tinta(style='background-color:cyan')= colores[1].azul+'%'
+          .tinta(style='background-color:magenta')= colores[1].rosa+'%'
+      .row
+        ul#listaA3.list-group
+          each texto in textos[1]
+            li= texto 
+    .col-sm-4
+      .row
+        a(href='/a4')
+          img(src='./images/A4.jpg' alt='Procesa cola')
+      .row
+        .toner
+          .tinta(style='background-color:black')= colores[2].negro+'%'
+          .tinta(style='background-color:yellow')= colores[2].amarillo+'%'
+          .tinta(style='background-color:cyan')= colores[2].azul+'%'
+          .tinta(style='background-color:magenta')= colores[2].rosa+'%'
+      .row
+        ul#listaA4.list-group
+          each texto in textos[2]
+            li= texto 
+
+      
